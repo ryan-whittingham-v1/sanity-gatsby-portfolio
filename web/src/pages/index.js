@@ -11,6 +11,7 @@ import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
+
 export const query = graphql`
   query IndexPageQuery {
     site: sanitySiteSettings(_id: {regex: "/(drafts.|)siteSettings/"}) {
@@ -85,21 +86,20 @@ const IndexPage = props => {
   }
 
   return (
-    <Layout>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Container>
-        <p>{site.description}</p>
-        <p>You can find me on twitter <a href='https://twitter.com/ry_whittingham'>@ry_whittingham</a> </p>
-        <h3>{site.subtitle}</h3>
-        {projectNodes && (
-          <ProjectPreviewGrid
-            title='Latest projects'
-            nodes={projectNodes}
-            browseMoreHref='/archive/'
-          />
-        )}
-      </Container>
-    </Layout>
+      <Layout>
+        <SEO title={site.title} description={site.description} keywords={site.keywords} />
+        <Container>
+          <p>{site.description}</p>
+          <h3>{site.subtitle}</h3>
+          {projectNodes && (
+            <ProjectPreviewGrid
+              title='Latest projects'
+              nodes={projectNodes}
+              browseMoreHref='/archive/'
+            />
+          )}
+        </Container>
+      </Layout>
   )
 }
 

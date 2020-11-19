@@ -7,11 +7,14 @@ const clientConfig = require('./client-config')
 const token = process.env.SANITY_READ_TOKEN
 
 const isProd = process.env.NODE_ENV === 'production'
+const path = require(`path`)
 
 module.exports = {
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
+    `gatsby-transformer-sharp`, 
+    `gatsby-plugin-sharp`,
     {
       resolve: 'gatsby-source-sanity',
       options: {
@@ -20,6 +23,13 @@ module.exports = {
         watchMode: !isProd,
         overlayDrafts: !isProd && token
       }
-    }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src`, `images`),
+      },
+    },
   ]
 }
