@@ -7,10 +7,10 @@ import BackgroundImage from 'gatsby-background-image'
 import {graphql, useStaticQuery} from 'gatsby'
 
 const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => { 
-  const data = useStaticQuery(
+ /* const data = useStaticQuery(
     graphql`
       query {
-        desktop: file(relativePath: { eq: "bharath-g-s-aLGiPJ4XRO4-unsplash.jpg" }) {
+        desktop: file(relativePath: { eq: "filip-zrnzevic-QsWG0kjPQRY-unsplash.jpg" }) {
           childImageSharp {
             fluid(quality: 100, maxWidth: 1000) {
               ...GatsbyImageSharpFluid_withWebp
@@ -21,11 +21,12 @@ const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => {
     `)
 
     const imageData = data.desktop.childImageSharp.fluid
-
+*/
     return (
-      <BackgroundImage
+     /*  <BackgroundImage
           fluid={imageData}
-      >
+      > */
+      <div>
         <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
         <div className={styles.content}>{children}</div>
         <footer className={styles.footer}>
@@ -37,7 +38,8 @@ const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => {
             </div>
           </div>
         </footer>
-      </BackgroundImage>
+      </div>
+      /*</BackgroundImage>*/
     )
 }
 export default Layout
